@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar App</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header id="calendar-header">
+    <div class="nav-group">
+      <button id="prev-month" aria-label="Previous month">&#8249;</button>
+      <button id="next-month" aria-label="Next month">&#8250;</button>
+    </div>
+    <h1 id="current-month-label"></h1>
+    <button id="today-btn">Today</button>
+  </header>
+
+  <main id="calendar-container">
+    <div id="weekday-labels">
+      <span>Sun</span>
+      <span>Mon</span>
+      <span>Tue</span>
+      <span>Wed</span>
+      <span>Thu</span>
+      <span>Fri</span>
+      <span>Sat</span>
+    </div>
+    <div id="calendar-grid"></div>
+  </main>
+
+  <!-- Add / Edit Event Modal -->
+  <div id="modal-overlay" class="hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal">
+      <div id="modal-header">
+        <h2 id="modal-title">Add Event</h2>
+        <button id="modal-close" aria-label="Close modal">&#10005;</button>
+      </div>
+
+      <form id="event-form" novalidate>
+        <div class="field-group">
+          <label for="event-title">Title <span class="required">*</span></label>
+          <input id="event-title" type="text" placeholder="Event title" autocomplete="off" />
+        </div>
+
+        <div class="field-group">
+          <label for="event-date">Date</label>
+          <input id="event-date" type="date" readonly />
+        </div>
+
+        <div class="time-row">
+          <div class="field-group">
+            <label for="event-start">Start time</label>
+            <input id="event-start" type="time" />
+          </div>
+          <div class="field-group">
+            <label for="event-end">End time</label>
+            <input id="event-end" type="time" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="event-notes">Notes</label>
+          <textarea id="event-notes" rows="3" placeholder="Optional notes"></textarea>
+        </div>
+
+        <div id="form-errors" role="alert"></div>
+
+        <div id="modal-actions">
+          <button type="submit" id="save-btn">Save</button>
+          <button type="button" id="delete-btn" class="hidden">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
